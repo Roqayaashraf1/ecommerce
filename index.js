@@ -42,7 +42,9 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/orders", orderRouter);
 app.use("/api/v1/wishlist", wishlistrouter);
-
+app.get("/", (req, res) => {
+  res.send("Welcome to the E-commerce API!");
+});
 app.all("*", (req, res, next) => {
   next(new AppError(`can't find this route: ${req.originalUrl}`, 404));
 });
